@@ -11,13 +11,12 @@ export default function SearchForm() {
           id='searchSeries'
           type='text'
           className='form-control'
-          aria-label='Text input with segmented dropdown button'
           placeholder='Digite sua busca...'
           value={searchValue}
           onChange={e => setSearchValue(e.target.value)}
         />
-        <div className='input-group-text bg-info border-info'>
-          <i class='bi bi-search' />
+        <div className='input-group-text btn bg-info border-info'>
+          <i className='bi bi-search' />
         </div>
       </div>
     </form>
