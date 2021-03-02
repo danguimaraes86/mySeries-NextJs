@@ -15,7 +15,7 @@ export default function SeriesCard({ poster, name, year, id }) {
         <Link href={`/details/${id}`}>
           <a className='text-decoration-none'>
             <div className='card-footer bg-dark'>
-              <small className='text-info'>Mais detalhes <i className="bi bi-arrow-up-right-square-fill" /></small>
+              <small className='text-info'>Mais detalhes <i className='bi bi-arrow-up-right-square-fill' /></small>
             </div>
           </a>
         </Link>
