@@ -5,7 +5,7 @@ export default function mySeriesLogo() {
     <Link href='/'>
       <a>
         <div className='navbar-brand text-info'>
-          <i className='bi bi-tv me-sm-2' />
+          <i className='bi bi-display me-sm-2' />
           <span className='d-none d-sm-inline-block'>
             mySeries
           </span>
