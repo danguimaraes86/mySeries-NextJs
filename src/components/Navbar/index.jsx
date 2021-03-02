@@ -4,7 +4,7 @@ import Login from './Login'
 
 export default function NavBar() {
   return (
-    <nav className='container-fluid navbar navbar-dark bg-dark rounded-bottom'>
+    <nav className='navbar navbar-dark bg-dark rounded-bottom px-2'>
       <MySeriesLogo />
       <div className='d-flex justify-content-between'>
         <SearchForm />
