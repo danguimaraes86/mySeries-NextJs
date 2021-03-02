@@ -6,10 +6,11 @@ import SeriesCard from '../components/SeriesCard'
 export default function Home({ trending }) {
 
   function handleTrendingSeries(data) {
-    return data.map((series) => {
+    return data.map((series, index) => {
       return (
         <SeriesCard
-          key={series.id}
+          key={index}
+          id={series.id}
           name={series.name}
           poster={series.poster_path}
           year={series.first_air_date}
