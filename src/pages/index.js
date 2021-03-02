@@ -25,19 +25,19 @@ export default function Home({ trending }) {
     <Layout>
       <Navbar />
       <TrendingWrapper>
-        { handleTrendingSeries(trending) }
+        {handleTrendingSeries(trending)}
       </TrendingWrapper>
     </Layout>
   )
 }
 
 export async function getServerSideProps(context) {
-  const url = `${process.env.APP_BASEURL}/api/trending`
-  const res = await axios.get(url)
+  const params = { language: 'pt-BR' }
+  const { results: trending } = await tmdbRequest('/trending/tv/week', params)
 
   return {
     props: {
-      trending: res.data.results
+      trending
     }
   }
 }
