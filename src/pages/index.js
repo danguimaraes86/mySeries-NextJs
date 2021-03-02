@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 import TrendingWrapper from '../components/TrendingWrapper'
@@ -30,12 +32,12 @@ export default function Home({ trending }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch('http://localhost:3000/api/trending')
-  const { results: trending } = await res.json()
+  const url = `${process.env.APP_BASEURL}/api/trending`
+  const res = await axios.get(url)
 
   return {
     props: {
-      trending
+      trending: res.data.results
     }
   }
 }
