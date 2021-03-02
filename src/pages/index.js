@@ -1,4 +1,4 @@
-import axios from 'axios'
+import tmdbRequest from '../libs/tmdbRequest'
 
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
