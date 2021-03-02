@@ -1,8 +1,7 @@
 import tmdbRequest from '../libs/tmdbRequest'
 
 import Layout from '../components/Layout'
-import Navbar from '../components/Navbar'
-import TrendingWrapper from '../components/TrendingWrapper'
+import TrendingWrapper from '../components/CardsWrapper'
 import SeriesCard from '../components/SeriesCard'
 
 export default function Home({ trending }) {
@@ -23,9 +22,11 @@ export default function Home({ trending }) {
 
   return (
     <Layout>
-      <Navbar />
       <TrendingWrapper>
-        {handleTrendingSeries(trending)}
+        <h5 className='display-5'>Em alta <i className='bi bi-graph-up' /></h5>
+        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3'>
+          {handleTrendingSeries(trending)}
+        </div>
       </TrendingWrapper>
     </Layout>
   )
