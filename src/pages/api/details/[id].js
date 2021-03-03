@@ -8,7 +8,9 @@ export default async (req, res) => {
   }
   const series = await tmdbRequest(`/tv/${id}`, params)
   const { results: providers } = await tmdbRequest(`/tv/${id}/watch/providers`)
-  series['providers'] = providers.BR.flatrate
+  if(providers.hasOwnProperty('BR')){
+    series['providers'] = providers.BR.flatrate
+  }
 
   res.status(200).json(series)
 }
