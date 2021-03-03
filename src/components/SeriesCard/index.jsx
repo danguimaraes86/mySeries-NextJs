@@ -12,7 +12,10 @@ export default function SeriesCard({ poster, name, year, id }) {
         <div className='card-body'>
           <h5 className='card-title'>{`${name} (${series_year})`}</h5>
         </div>
-        <Link href={`/details/${id}`}>
+        <Link href={{
+          pathname: '/details/[id]',
+          query: { id: id }
+        }}>
           <a className='text-decoration-none'>
             <div className='card-footer bg-dark'>
               <small className='text-info'>Mais detalhes <i className='bi bi-arrow-up-right-square-fill' /></small>
