@@ -3,8 +3,7 @@ import tmdbRequest from '../../libs/tmdbRequest'
 import Layout from '../../components/Layout'
 
 export default function SeriesDetails({ series }) {
-  console.log(series)
-  
+
   return (
     <Layout>
       <h1>Series Details: {series.id}</h1>
@@ -19,9 +18,8 @@ export async function getServerSideProps(context) {
     append_to_response: 'external_ids'
   }
   const series = await tmdbRequest(`/tv/${id}`, params)
-  const { results } = await tmdbRequest(`/tv/${id}/watch/providers`)
-
-  series['providers'] = results.BR.flatrate
+  const { results: providers } = await tmdbRequest(`/tv/${id}/watch/providers`)
+  series['providers'] = providers.BR.flatrate
 
   return {
     props: {

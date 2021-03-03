@@ -7,8 +7,8 @@ export default async (req, res) => {
     append_to_response: 'external_ids'
   }
   const series = await tmdbRequest(`/tv/${id}`, params)
-  const { results } = await tmdbRequest(`/tv/${id}/watch/providers`)
-  series['providers'] = results.BR.flatrate
+  const { results: providers } = await tmdbRequest(`/tv/${id}/watch/providers`)
+  series['providers'] = providers.BR.flatrate
 
   res.status(200).json(series)
 }
