@@ -4,8 +4,7 @@ import handleSearchResults from '../libs/handleArrayMap'
 import Layout from '../components/Layout'
 import ResultsWrapper from '../components/CardsWrapper'
 
-export default function Home({ results }) {
-
+export default function Search({ results }) {
   return (
     <Layout>
       <ResultsWrapper title={'Resultados'}>
