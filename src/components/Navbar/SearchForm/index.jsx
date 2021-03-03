@@ -8,7 +8,7 @@ export default function SearchForm() {
 
   function handleFormSubmit(e) {
     e.preventDefault()
-    router.push(`/search?type=tv&value=${searchValue}`)
+    router.push(`/search?value=${searchValue}`)
   }
 
   return (

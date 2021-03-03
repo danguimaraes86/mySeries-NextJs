@@ -18,8 +18,8 @@ export default function Home({ results }) {
 }
 
 export async function getServerSideProps(context) {
-  const { type, value } = context.query
-  if (!type || !value) {
+  const { value } = context.query
+  if (!value) {
     return { notFound: true }
   }
 
@@ -27,7 +27,7 @@ export async function getServerSideProps(context) {
     query: value,
     language: 'pt-BR'
   }
-  const { results } = await tmdbRequest(`/search/${type}`, params)
+  const { results } = await tmdbRequest('/search/tv', params)
 
   return {
     props: {

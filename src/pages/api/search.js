@@ -1,11 +1,11 @@
 import tmdbRequest from '../../libs/tmdbRequest'
 
 export default async (req, res) => {
-  const { value, type } = req.query
+  const { value } = req.query
   const params = {
     query: value,
     language: 'pt-BR'
   }
-  const result = await tmdbRequest(`/search/${type}`, params)
+  const result = await tmdbRequest('/search/tv', params)
   res.status(200).json(result)
 }
