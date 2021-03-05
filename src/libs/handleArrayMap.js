@@ -4,7 +4,7 @@ import SeriesCard from '../components/SeriesCard'
 export default function handleArrayMap(data, sort, errorMessage) {
   if (data.length === 0) {
     return (
-      <div className=''>
+      <div className='col'>
         <h4>{errorMessage}</h4>
       </div>
     )
