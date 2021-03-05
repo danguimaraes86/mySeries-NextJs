@@ -32,7 +32,7 @@ export default function SeriesCard({ poster, name, year, id }) {
       <div className='card h-100'>
         {handleSeriesPoster(poster)}
         <div className='card-body'>
-          <h5 className='card-title'>{`${name} (${series_year})`}</h5>
+          <h5 className='card-title'>{`${name} ${series_year}`}</h5>
         </div>
         <Link href={{
           pathname: '/details/[id]',
