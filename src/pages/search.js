@@ -8,7 +8,7 @@ export default function Search({ results }) {
   return (
     <Layout>
       <ResultsWrapper title={'Resultados'}>
-        {handleSearchResults(results, 'Nenhum resultado encontrado')}
+        {handleSearchResults(results, true, 'Nenhum resultado encontrado')}
       </ResultsWrapper>
     </Layout>
   )

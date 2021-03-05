@@ -9,7 +9,7 @@ export default function Home({ trending }) {
   return (
     <Layout>
       <TrendingWrapper title={'Em alta'}>
-        {handleTrendingSeries(trending, 'Nada encontrado')}
+        {handleTrendingSeries(trending, false, 'Nada encontrado')}
       </TrendingWrapper>
     </Layout>
   )
