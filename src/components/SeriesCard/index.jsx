@@ -4,6 +4,9 @@ import Image from 'next/image'
 
 export default function SeriesCard({ poster, name, year, id }) {
 
+  const series_poster_url = `https://image.tmdb.org/t/p/w500/${poster}`
+  const series_year = getYear(year)
+  
   function handleSeriesPoster(img){
     if(!img){
       return (
@@ -24,8 +27,6 @@ export default function SeriesCard({ poster, name, year, id }) {
     }
   }
 
-  const series_poster_url = `https://image.tmdb.org/t/p/w500/${poster}`
-  const series_year = getYear(year)
   return (
     <div className='col col-12 col-sm-6 col-md-4 col-lg-3'>
       <div className='card h-100'>
