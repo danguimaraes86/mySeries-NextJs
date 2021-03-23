@@ -47,7 +47,8 @@ export default function SeriesDetails({ series }) {
 
               <div className='col-12'>
                 <button className='btn btn-outline-dark w-100'>
-                  Favorito <i className='bi bi-bookmark-star' />
+                  <span className='d-none d-md-inline-block'>Favorito</span>
+                  <i className='bi bi-bookmark-star' />
                 </button>
               </div>
             </div>
@@ -75,7 +76,7 @@ export default function SeriesDetails({ series }) {
               <div className='col-12 mb-2'>
                 <div className='row'>
 
-                  <div className='col-4'>
+                  <div className='col-6 col-md-4'>
                     <h6>Networks</h6>
                     <div className='d-flex justify-content-between flex-wrap'>
                       <img
@@ -86,7 +87,7 @@ export default function SeriesDetails({ series }) {
                     </div>
                   </div>
 
-                  <div className='col-4'>
+                  <div className='col-6 col-md-4'>
                     <h6>Streaming</h6>
                     <div className='d-flex justify-content-between flex-wrap'>
                       {handleProvider(series)}
@@ -124,7 +125,7 @@ export async function getServerSideProps(context) {
     if (providers.BR.hasOwnProperty('flatrate')) {
       series.providers.push(...providers.BR.flatrate)
     }
-    if(providers.BR.hasOwnProperty('ads')){
+    if (providers.BR.hasOwnProperty('ads')) {
       series.providers.push(...providers.BR.ads)
     }
   }
