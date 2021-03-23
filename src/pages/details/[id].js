@@ -9,30 +9,22 @@ export default function SeriesDetails({ series }) {
   const series_year = getYear(series.first_air_date)
 
   function handleProvider(series) {
-    if (!series.providers) {
+    if (series.providers.length === 0) {
       return (
-        <img
-          className='img-fluid'
-          style={{ height: '2em' }}
-          src={`https://image.tmdb.org/t/p/w185/${series.networks[0].logo_path}`}
-        />
+        <span className='lh-1'>Nenhum encontrado</span>
       )
     } else {
-      return handleMultipleProviders(series)
+      return series.providers.map((provider, index) => {
+        return (
+          <img
+            key={index}
+            className='img-fluid'
+            style={{ height: '2em' }}
+            src={`https://image.tmdb.org/t/p/w185/${provider.logo_path}`}
+          />
+        )
+      })
     }
-  }
-
-  function handleMultipleProviders(series) {
-    return series.providers.map((provider, index) => {
-      return (
-        <img
-          key={index}
-          className='img-fluid'
-          style={{ height: '2em' }}
-          src={`https://image.tmdb.org/t/p/w185/${provider.logo_path}`}
-        />
-      )
-    })
   }
 
   return (
@@ -125,9 +117,16 @@ export async function getServerSideProps(context) {
     append_to_response: 'external_ids'
   }
   const series = await tmdbRequest(`/tv/${id}`, params)
+  series['providers'] = []
+
   const { results: providers } = await tmdbRequest(`/tv/${id}/watch/providers`)
   if (providers.hasOwnProperty('BR')) {
-    series['providers'] = providers.BR.flatrate
+    if (providers.BR.hasOwnProperty('flatrate')) {
+      series.providers.push(...providers.BR.flatrate)
+    }
+    if(providers.BR.hasOwnProperty('ads')){
+      series.providers.push(...providers.BR.ads)
+    }
   }
 
   return {
