@@ -8,7 +8,10 @@ export default function SearchForm() {
 
   function handleFormSubmit(e) {
     e.preventDefault()
-    router.push(`/search?value=${searchValue}`)
+    router.push({
+      pathname: '/search',
+      query: { value: searchValue }
+    })
   }
 
   return (
@@ -27,7 +30,7 @@ export default function SearchForm() {
         />
         <button
           type='submit'
-          className='input-group-text btn bg-info border-info'
+          className='btn input-group-text bg-info border-info'
         >
           <i className='bi bi-search' />
         </button>

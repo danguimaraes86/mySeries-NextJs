@@ -2,16 +2,13 @@ import tmdbRequest from '../libs/tmdbRequest'
 import handleSearchResults from '../libs/handleArrayMap'
 
 import Layout from '../components/Layout'
-import NavBar from '../components/Navbar'
 import ResultsWrapper from '../components/CardsWrapper'
 
-export default function Home({ results }) {
-
+export default function Search({ results }) {
   return (
     <Layout>
-      <NavBar />
       <ResultsWrapper title={'Resultados'}>
-        {handleSearchResults(results, 'Nenhum resultado encontrado')}
+        {handleSearchResults(results, true, 'Nenhum resultado encontrado')}
       </ResultsWrapper>
     </Layout>
   )
