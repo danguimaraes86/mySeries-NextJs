@@ -25,7 +25,7 @@ export default function SeriesTitle({ network, providers }) {
       <div className='row'>
 
         <div className='col-6 col-md-4'>
-          <h6>Networks</h6>
+          <h6>Emissoras</h6>
           <div className='d-flex justify-content-between flex-wrap'>
             <img
               className='img-fluid'
@@ -36,7 +36,7 @@ export default function SeriesTitle({ network, providers }) {
         </div>
 
         <div className='col-6 col-md-4'>
-          <h6>Streaming</h6>
+          <h6>Onde Assistir</h6>
           <div className='d-flex justify-content-between flex-wrap'>
             {handleProvider(providers)}
           </div>
