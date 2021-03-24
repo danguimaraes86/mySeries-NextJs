@@ -13,16 +13,13 @@ import SeriesOverview from '../../components/SeriesDetails/SeriesOverview'
 import NetworksAndStreaming from '../../components/SeriesDetails/NetworksAndStreaming'
 
 export default function SeriesDetails({ series }) {
-  const series_poster_url = `https://image.tmdb.org/t/p/w500/${series.poster_path}`
-  const series_year = getYear(series.first_air_date)
 
   return (
     <Layout>
       <DetailsWrapper>
-
         <LeftColumn>
           <PosterCard
-            url={series_poster_url}
+            url={`https://image.tmdb.org/t/p/w500/${series.poster_path}`}
             name={series.name}
           />
           <FavoriteButton />
@@ -33,9 +30,17 @@ export default function SeriesDetails({ series }) {
             name={series.name}
             original_name={series.original_name}
             original_language={series.original_language}
-            year={series_year}
+            year={getYear(series.first_air_date)}
           />
-          <SeriesOverview overview={series.overview} />
+
+          <SeriesOverview
+            overview={series.overview}
+            type={series.type}
+            first_air_date={series.first_air_date}
+            number_of_seasons={series.number_of_seasons}
+            status={series.status}
+          />
+
           <NetworksAndStreaming
             network={series.networks[0]}
             providers={series.providers}
