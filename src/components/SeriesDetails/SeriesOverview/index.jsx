@@ -1,4 +1,5 @@
 import { dateLocale } from '../../../libs/dateParsing'
+
 export default function SeriesOverview({ overview, type, first_air_date, number_of_seasons, status }) {
 
   return (
