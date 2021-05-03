@@ -1,6 +1,6 @@
 import MySeriesLogo from './mySeriesLogo'
 import SearchForm from './SearchForm'
-import Login from './Login'
+import LoginButton from './LoginButton'
 
 export default function NavBar() {
   return (
@@ -8,7 +8,7 @@ export default function NavBar() {
       <MySeriesLogo />
       <div className='d-flex justify-content-between'>
         <SearchForm />
-        <Login />
+        <LoginButton />
       </div>
     </nav>
   )
