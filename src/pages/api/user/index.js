@@ -1,7 +1,10 @@
 import { connectToDatabase } from '../../../libs/mongodb'
+import { handleAllowedMethod } from '../../../libs/handleAllowedMethod'
 
 export default async (req, res) => {
-  const { db } = await connectToDatabase()
-  const index = await db.collection('Users').find().toArray()
-  res.status(201).json(index)
+  handleAllowedMethod(req.method, 'GET', async () => {
+    const { db } = await connectToDatabase()
+    const index = await db.collection('Users').find().toArray()
+    res.status(201).json(index)
+  }, res)
 }

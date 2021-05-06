@@ -1,8 +1,11 @@
 import { connectToDatabase } from '../../../../libs/mongodb'
+import { handleAllowedMethod } from '../../../../libs/handleAllowedMethod'
 
 export default async (req, res) => {
-  const { userID } = req.query
-  const { db } = await connectToDatabase()
-  const user = await db.collection('Users').findOne({ userID })
-  res.status(201).json(user)
+  handleAllowedMethod(req.method, 'GET', async () => {
+    const { userID } = req.query
+    const { db } = await connectToDatabase()
+    const user = await db.collection('Users').findOne({ userID })
+    res.status(201).json(user)
+  }, res)
 }
