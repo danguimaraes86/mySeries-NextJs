@@ -1,8 +1,8 @@
-import { connectToDatabase } from '../../../../libs/mongodb'
+import { connectToDatabase } from '../../../../database/mongodb'
 import { handleAllowedMethod } from '../../../../libs/handleAllowedMethod'
 
 export default async (req, res) => {
-  handleAllowedMethod(req.method, 'GET', async () => {
+  handleAllowedMethod(req.method, 'POST', async () => {
     const { userID } = req.query
     const { password } = req.body
     const { db } = await connectToDatabase()

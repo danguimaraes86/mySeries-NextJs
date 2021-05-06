@@ -1,4 +1,4 @@
-import { connectToDatabase } from '../../../libs/mongodb'
+import { connectToDatabase } from '../../../database/mongodb'
 import { handleAllowedMethod } from '../../../libs/handleAllowedMethod'
 
 export default async (req, res) => {
