@@ -1,13 +1,39 @@
+import { useState } from 'react'
 
 export default function LoginForm() {
+
+  let [userID, setUserID] = useState('')
+  let [userFirstName, setUserFirstName] = useState('')
+  let [userLastName, setUserLastName] = useState('')
+  let [password, setPassword] = useState('')
+  let [passwordConfirmation, setPasswordConfirmation] = useState('')
+
+  function handleRegistrationSubmit(e) {
+    e.preventDefault()
+    console.log({
+      userID,
+      userFirstName,
+      userLastName,
+      password,
+      passwordConfirmation
+    })
+  }
+
   return (
     <div className='tab-pane p-3 fade' id='nav-registration' role='tabpanel'>
-      <form>
+      <form onSubmit={e => handleRegistrationSubmit(e)}>
         {/* User ID */}
         <div className='row g-1 mb-3'>
           <label className=' col-3 col-form-label' htmlFor='registrationIDInpunt'>Usuário ID</label>
           <div className='col'>
-            <input type='text' className='form-control' id='registrationIDInpunt' placeholder='Escolha um ID para seu usuário' />
+            <input
+              type='text'
+              className='form-control'
+              id='registrationIDInpunt'
+              placeholder='Escolha um ID para seu usuário'
+              value={userID}
+              onChange={e => setUserID(e.target.value)}
+            />
           </div>
           <div className='col-9 offset-3 form-text'>
             Mínimo de 6 caracteres
@@ -17,18 +43,45 @@ export default function LoginForm() {
         <div className='row g-1 mb-3'>
           <label className=' col-3 col-form-label' htmlFor='registrationNameInpunt'>Nome</label>
           <div className='col input-group'>
-            <input type='text' className='form-control' id='registrationNameInpunt' placeholder='Nome' />
-            <input type='text' className='form-control' id='registrationLastNameInpunt' placeholder='Sobrenome' />
+            <input
+              type='text'
+              className='form-control'
+              id='registrationNameInpunt'
+              placeholder='Nome'
+              value={userFirstName}
+              onChange={e => setUserFirstName(e.target.value)}
+            />
+            <input type='text'
+              className='form-control'
+              id='registrationLastNameInpunt'
+              placeholder='Sobrenome'
+              value={userLastName}
+              onChange={e => setUserLastName(e.target.value)}
+            />
           </div>
         </div>
         {/* Password */}
         <div className='row g-1 mb-3'>
           <label className='col-3 col-form-label' htmlFor='passwordInput' >Password</label>
           <div className='col'>
-            <input type='password' className='form-control' id='passwordInput' placeholder='Digite seu password' />
+            <input
+            type='password'
+            className='form-control'
+            id='passwordInput'
+            placeholder='Digite seu password'
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            />
           </div>
           <div className='col-9 offset-3'>
-            <input type='password' className='form-control' id='passwordConfirmationInput' placeholder='Confirme seu password' />
+            <input
+            type='password'
+            className='form-control'
+            id='passwordConfirmationInput'
+            placeholder='Confirme seu password'
+            value={passwordConfirmation}
+            onChange={e => setPasswordConfirmation(e.target.value)}
+            />
           </div>
           <div className='col-9 offset-3 form-text'>
             Mínimo de 6 caracteres
