@@ -1,8 +1,8 @@
 
-export function handleAllowedMethod(httpMethod, allowed, callback, res) {
+export function handleAllowedMethod(httpMethod, allowed, handler, response) {
   if(httpMethod === allowed){
-    callback()
+    handler()
   } else {
-    return res.status(405).end()
+    return response.status(405).end()
   }
 }
