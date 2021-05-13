@@ -50,7 +50,7 @@ export default function LoginForm() {
             <span className='me-1'>
               Login
               </span>
-            <i className="bi bi-caret-right" />
+            <i className='bi bi-caret-right' />
           </button>
         </div>
       </form>
