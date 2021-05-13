@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axiosRequest from '../../../libs/fetcher'
 
 export default function LoginForm() {
 
@@ -8,15 +9,17 @@ export default function LoginForm() {
   let [password, setPassword] = useState('')
   let [passwordConfirmation, setPasswordConfirmation] = useState('')
 
-  function handleRegistrationSubmit(e) {
+  async function handleRegistrationSubmit(e) {
     e.preventDefault()
-    console.log({
+    const newUser = {
       nickname,
       userFirstName,
       userLastName,
       password,
       passwordConfirmation
-    })
+    }
+    const result = await axiosRequest('/api/user/create', 'POST', newUser)
+    console.log(result);
   }
 
   return (
@@ -93,7 +96,7 @@ export default function LoginForm() {
             <span className='me-2'>
               Cadastrar
               </span>
-            <i className="bi bi-person-plus-fill" />
+            <i className='bi bi-person-plus-fill' />
           </button>
         </div>
       </form>

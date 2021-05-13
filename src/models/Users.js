@@ -6,9 +6,9 @@ export async function Index() {
   return index
 }
 
-export async function Create(username, password) {
+export async function Create(newUser) {
   const { db } = await connectToDatabase()
-  const { ops: user } = await db.collection('Users').insertOne({ username, password })
+  const { ops: user } = await db.collection('Users').insertOne(newUser)
   return user[0]
 }
 
