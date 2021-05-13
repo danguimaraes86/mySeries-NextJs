@@ -6,20 +6,20 @@ export async function Index() {
   return index
 }
 
-export async function Create(userID, password) {
+export async function Create(username, password) {
   const { db } = await connectToDatabase()
-  const { ops: user } = await db.collection('Users').insertOne({ userID, password })
+  const { ops: user } = await db.collection('Users').insertOne({ username, password })
   return user[0]
 }
 
-export async function FindOne(userID) {
+export async function FindOne(username) {
   const { db } = await connectToDatabase()
-  const user = await db.collection('Users').findOne({ userID })
+  const user = await db.collection('Users').findOne({ username })
   return user
 }
 
-export async function Update(userID, password) {
+export async function Update(username, password) {
   const { db } = await connectToDatabase()
-  const result = await db.collection('Users').findOneAndUpdate({ userID }, { $set: { password } }, { returnOriginal: false })
+  const result = await db.collection('Users').findOneAndUpdate({ username }, { $set: { password } }, { returnOriginal: false })
   return result
 }

@@ -2,13 +2,13 @@ import { useState } from 'react'
 
 export default function LoginForm() {
 
-  let [userID, setUserID] = useState('')
+  let [nickname, setNickname] = useState('')
   let [password, setPassword] = useState('')
 
   function handleLoginSubmit(e) {
     e.preventDefault()
     console.log({
-      userID,
+      nickname,
       password,
     })
   }
@@ -16,17 +16,17 @@ export default function LoginForm() {
   return (
     < div className='tab-pane p-3 fade show active' id='nav-login' role='tabpanel' >
       <form onSubmit={e => handleLoginSubmit(e)}>
-        {/* User ID */}
+        {/* User Nickname */}
         <div className='row g-1 mb-3'>
-          <label htmlFor='loginIDInpunt' className='col-3 col-form-label'>Usuário ID</label>
+          <label htmlFor='loginNicknameInput' className='col-3 col-form-label'>Nickname</label>
           <div className='col'>
             <input
               type='text'
               className='form-control'
-              id='loginIDInpunt'
-              placeholder='Digite seu ID de usuário'
-              value={userID}
-              onChange={e => setUserID(e.target.value)}
+              id='loginNicknameInput'
+              placeholder='Digite seu nickname'
+              value={nickname}
+              onChange={e => setNickname(e.target.value)}
             />
           </div>
           {/* Password */}

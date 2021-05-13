@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 export default function LoginForm() {
 
-  let [userID, setUserID] = useState('')
+  let [nickname, setNickname] = useState('')
   let [userFirstName, setUserFirstName] = useState('')
   let [userLastName, setUserLastName] = useState('')
   let [password, setPassword] = useState('')
@@ -11,7 +11,7 @@ export default function LoginForm() {
   function handleRegistrationSubmit(e) {
     e.preventDefault()
     console.log({
-      userID,
+      nickname,
       userFirstName,
       userLastName,
       password,
@@ -22,17 +22,17 @@ export default function LoginForm() {
   return (
     <div className='tab-pane p-3 fade' id='nav-registration' role='tabpanel'>
       <form onSubmit={e => handleRegistrationSubmit(e)}>
-        {/* User ID */}
+        {/* User Nickname */}
         <div className='row g-1 mb-3'>
-          <label className=' col-3 col-form-label' htmlFor='registrationIDInpunt'>Usuário ID</label>
+          <label className=' col-3 col-form-label' htmlFor='registrationNicknameInput'>Nickname</label>
           <div className='col'>
             <input
               type='text'
               className='form-control'
-              id='registrationIDInpunt'
-              placeholder='Escolha um ID para seu usuário'
-              value={userID}
-              onChange={e => setUserID(e.target.value)}
+              id='registrationNicknameInput'
+              placeholder='Escolha um nickname'
+              value={nickname}
+              onChange={e => setNickname(e.target.value)}
             />
           </div>
           <div className='col-9 offset-3 form-text'>
