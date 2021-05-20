@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axiosRequest from '../../../libs/fetcher'
+import { apiFetcher } from '../../../libs/axios'
 
 export default function LoginForm() {
 
@@ -18,7 +18,7 @@ export default function LoginForm() {
       password,
       passwordConfirmation
     }
-    const result = await axiosRequest('/api/user/create', 'POST', newUser)
+    const result = await apiFetcher('/api/user/create', 'POST', newUser)
     console.log(result);
   }
 
