@@ -1,7 +1,6 @@
 import tmdbRequest from '../../libs/tmdbRequest'
 import { getYear } from '../../libs/dateParsing'
 
-import Layout from '../../components/Layout'
 import DetailsWrapper from '../../components/SeriesDetails/DetailsWrapper'
 import LeftColumn from '../../components/SeriesDetails/DetailsWrapper/LeftColumn'
 import RightColumn from '../../components/SeriesDetails/DetailsWrapper/RightColumn'
@@ -15,39 +14,37 @@ import NetworksAndStreaming from '../../components/SeriesDetails/NetworksAndStre
 export default function SeriesDetails({ series }) {
 
   return (
-    <Layout>
-      <DetailsWrapper>
-        <LeftColumn>
-          <PosterCard
-            url={`https://image.tmdb.org/t/p/w500/${series.poster_path}`}
-            name={series.name}
-          />
-          <FavoriteButton />
-        </LeftColumn>
+    <DetailsWrapper>
+      <LeftColumn>
+        <PosterCard
+          url={`https://image.tmdb.org/t/p/w500/${series.poster_path}`}
+          name={series.name}
+        />
+        <FavoriteButton />
+      </LeftColumn>
 
-        <RightColumn>
-          <SeriesTitle
-            name={series.name}
-            original_name={series.original_name}
-            original_language={series.original_language}
-            year={getYear(series.first_air_date)}
-          />
+      <RightColumn>
+        <SeriesTitle
+          name={series.name}
+          original_name={series.original_name}
+          original_language={series.original_language}
+          year={getYear(series.first_air_date)}
+        />
 
-          <SeriesOverview
-            overview={series.overview}
-            type={series.type}
-            first_air_date={series.first_air_date}
-            number_of_seasons={series.number_of_seasons}
-            status={series.status}
-          />
+        <SeriesOverview
+          overview={series.overview}
+          type={series.type}
+          first_air_date={series.first_air_date}
+          number_of_seasons={series.number_of_seasons}
+          status={series.status}
+        />
 
-          <NetworksAndStreaming
-            network={series.networks[0]}
-            providers={series.providers}
-          />
-        </RightColumn>
-      </DetailsWrapper>
-    </Layout >
+        <NetworksAndStreaming
+          network={series.networks[0]}
+          providers={series.providers}
+        />
+      </RightColumn>
+    </DetailsWrapper>
   )
 }
 
