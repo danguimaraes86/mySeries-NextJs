@@ -92,7 +92,7 @@ export default function LoginForm() {
         </div>
         {/* Submit Button */}
         <div className='d-flex justify-content-end'>
-          <button type='submit' className='btn btn-primary'>
+          <button type='submit' className='btn btn-dark text-info'>
             <span className='me-2'>
               Cadastrar
               </span>
