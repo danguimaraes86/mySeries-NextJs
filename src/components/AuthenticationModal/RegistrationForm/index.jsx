@@ -40,7 +40,7 @@ export default function LoginForm() {
           </div>
           <div className='col-9 offset-3 form-text'>
             Mínimo de 6 caracteres
-            </div>
+          </div>
         </div>
         {/* User Name */}
         <div className='row g-1 mb-3'>
@@ -68,34 +68,34 @@ export default function LoginForm() {
           <label className='col-3 col-form-label' htmlFor='passwordInput' >Password</label>
           <div className='col'>
             <input
-            type='password'
-            className='form-control'
-            id='passwordInput'
-            placeholder='Digite seu password'
-            value={password}
-            onChange={e => setPassword(e.target.value)}
+              type='password'
+              className='form-control'
+              id='passwordInput'
+              placeholder='Digite seu password'
+              value={password}
+              onChange={e => setPassword(e.target.value)}
             />
           </div>
           <div className='col-9 offset-3'>
             <input
-            type='password'
-            className='form-control'
-            id='passwordConfirmationInput'
-            placeholder='Confirme seu password'
-            value={passwordConfirmation}
-            onChange={e => setPasswordConfirmation(e.target.value)}
+              type='password'
+              className='form-control'
+              id='passwordConfirmationInput'
+              placeholder='Confirme seu password'
+              value={passwordConfirmation}
+              onChange={e => setPasswordConfirmation(e.target.value)}
             />
           </div>
           <div className='col-9 offset-3 form-text'>
             Mínimo de 6 caracteres
-            </div>
+          </div>
         </div>
         {/* Submit Button */}
         <div className='d-flex justify-content-end'>
           <button type='submit' className='btn btn-dark text-info'>
             <span className='me-2'>
               Cadastrar
-              </span>
+            </span>
             <i className='bi bi-person-plus-fill' />
           </button>
         </div>

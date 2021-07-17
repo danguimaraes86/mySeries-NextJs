@@ -18,7 +18,6 @@
 # misc
 .DS_Store
 *.pem
-bootstrap.css
 
 # debug
 npm-debug.log*
